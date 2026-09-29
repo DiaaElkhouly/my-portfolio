@@ -46,51 +46,72 @@ export function About() {
             <TerminalCard title="~/about.md" delay={0}>
               <div className="code-block text-[var(--color-text-secondary)] space-y-4">
                 <p>
-                  <span className="text-[var(--color-accent-purple)]">const</span>{" "}
-                  <span className="text-[var(--color-accent-cyan)]">developer</span>{" "}
+                  <span className="text-[var(--color-accent-purple)]">
+                    const
+                  </span>{" "}
+                  <span className="text-[var(--color-accent-cyan)]">
+                    developer
+                  </span>{" "}
                   <span className="text-[var(--color-text-primary)]">=</span>{" "}
-                  <span className="text-[var(--color-text-primary)]">{"{"}</span>
+                  <span className="text-[var(--color-text-primary)]">
+                    {"{"}
+                  </span>
                 </p>
                 <p className="pl-4">
                   <span className="text-[var(--color-accent-rose)]">name</span>
-                  <span className="text-[var(--color-text-primary)]">:</span>{" "}
+                  <span className="text-[var(--color-text-primary)]">
+                    :
+                  </span>{" "}
                   <span className="text-[var(--color-accent-emerald)]">
-                    &quot;Alex Chen&quot;
+                    &quot;Diaa Elkhouly&quot;
                   </span>
                   <span className="text-[var(--color-text-primary)]">,</span>
                 </p>
                 <p className="pl-4">
                   <span className="text-[var(--color-accent-rose)]">role</span>
-                  <span className="text-[var(--color-text-primary)]">:</span>{" "}
+                  <span className="text-[var(--color-text-primary)]">
+                    :
+                  </span>{" "}
                   <span className="text-[var(--color-accent-emerald)]">
-                    &quot;Senior Full Stack Engineer&quot;
+                    &quot;Full Stack Engineer&quot;
                   </span>
                   <span className="text-[var(--color-text-primary)]">,</span>
                 </p>
                 <p className="pl-4">
-                  <span className="text-[var(--color-accent-rose)]">experience</span>
+                  <span className="text-[var(--color-accent-rose)]">
+                    experience
+                  </span>
                   <span className="text-[var(--color-text-primary)]">:</span>{" "}
-                  <span className="text-[var(--color-accent-blue)]">8</span>{" "}
-                  <span className="text-[var(--color-text-muted)]">+ years</span>
+                  <span className="text-[var(--color-accent-blue)]">3</span>{" "}
+                  <span className="text-[var(--color-text-muted)]">
+                    + years
+                  </span>
                   <span className="text-[var(--color-text-primary)]">,</span>
                 </p>
                 <p className="pl-4">
                   <span className="text-[var(--color-accent-rose)]">focus</span>
-                  <span className="text-[var(--color-text-primary)]">:</span>{" "}
+                  <span className="text-[var(--color-text-primary)]">
+                    :
+                  </span>{" "}
                   <span className="text-[var(--color-accent-emerald)]">
-                    &quot;Scalable web apps, real-time systems, developer tools&quot;
+                    &quot;Scalable web apps, real-time systems, developer
+                    tools&quot;
                   </span>
                   <span className="text-[var(--color-text-primary)]">,</span>
                 </p>
                 <p className="pl-4">
-                  <span className="text-[var(--color-accent-rose)]">location</span>
+                  <span className="text-[var(--color-accent-rose)]">
+                    location
+                  </span>
                   <span className="text-[var(--color-text-primary)]">:</span>{" "}
                   <span className="text-[var(--color-accent-emerald)]">
-                    &quot;San Francisco, CA&quot;
+                    &quot;EGYPT&quot;
                   </span>
                 </p>
                 <p>
-                  <span className="text-[var(--color-text-primary)]">{"}"}</span>
+                  <span className="text-[var(--color-text-primary)]">
+                    {"}"}
+                  </span>
                 </p>
               </div>
             </TerminalCard>
@@ -103,15 +124,15 @@ export function About() {
               className="grid grid-cols-3 gap-4"
             >
               {[
-                { value: "8+", label: "Years Exp." },
+                { value: "3+", label: "Years Exp." },
                 { value: "50+", label: "Projects" },
-                { value: "12K+", label: "Users Served" },
+                { value: "6K+", label: "Users Served" },
               ].map((stat) => (
                 <div
                   key={stat.label}
                   className="text-center p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)]"
                 >
-                  <div className="text-2xl md:text-3xl font-bold gradient-text mb-1">
+                  <div className="text-2xl md:text-3xl font-bold text-[var(--color-accent-cyan)]">
                     {stat.value}
                   </div>
                   <div className="text-xs text-[var(--color-text-muted)] font-mono">

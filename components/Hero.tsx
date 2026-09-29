@@ -45,8 +45,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="mb-8"
-        >
-        </motion.div>
+        ></motion.div>
 
         {/* Name */}
         <motion.h1
@@ -55,7 +54,8 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4"
         >
-          Diaa <span className="gradient-text">El Khouly</span>
+          Diaa{" "}
+          <span className="text-[var(--color-accent-cyan)]">El Khouly</span>
         </motion.h1>
 
         {/* Title */}
@@ -101,7 +101,7 @@ export function Hero() {
                 .getElementById("projects")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="group flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[var(--color-accent-cyan)] to-[var(--color-accent-blue)] text-[var(--color-bg-primary)] font-semibold text-sm hover:opacity-90 transition-opacity glow-cyan"
+            className="group flex items-center gap-2 px-8 py-4 rounded-xl bg-[var(--color-accent-cyan)] text-[var(--color-bg-primary)] font-semibold text-sm hover:opacity-90 transition-opacity glow-cyan"
           >
             View My Work
             <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

@@ -73,12 +73,12 @@ export function Navigation({ theme, toggleTheme }: NavigationProps) {
               }}
               className="flex items-center gap-2 group"
             >
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[var(--color-accent-cyan)] to-[var(--color-accent-purple)] flex items-center justify-center">
-                <span className="text-white font-mono font-bold text-sm">
+              <div className="w-9 h-9 rounded-lg bg-[var(--color-accent-cyan)] flex items-center justify-center">
+                <span className="text-black font-mono font-bold text-lg">
                   DK
                 </span>
               </div>
-              <span className="font-mono font-semibold text-sm tracking-tight hidden sm:block">
+              <span className="font-mono font-semibold text-lg tracking-tight hidden sm:block">
                 DiaaElKhouly
               </span>
             </a>
