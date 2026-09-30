@@ -54,7 +54,7 @@ export function Contact() {
               <h3 className="font-semibold mb-4">Contact Info</h3>
               <div className="space-y-4">
                 <a
-                  href="mailto:alex@example.com"
+                  href="mailto:diaaelkhouly8@gmail.com"
                   className="flex items-center gap-3 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-cyan)] transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-[var(--color-accent-cyan)]/10 flex items-center justify-center group-hover:bg-[var(--color-accent-cyan)]/20 transition-colors">
@@ -104,24 +104,15 @@ export function Contact() {
                   },
                   {
                     label: "LinkedIn",
-                    url: "www.linkedin.com/in/diaa-elkhouly-42abb4339",
+                    url: "https://www.linkedin.com/in/diaa-elkhouly-42abb4339/",
                     color: "var(--color-accent-blue)",
-                  },
-                  {
-                    label: "Twitter / X",
-                    url: "#",
-                    color: "var(--color-accent-purple)",
-                  },
-                  {
-                    label: "Dev.to",
-                    url: "#",
-                    color: "var(--color-accent-emerald)",
                   },
                 ].map((link) => (
                   <a
                     key={link.label}
                     href={link.url}
-                    onClick={(e) => e.preventDefault()}
+                    target="_blank"
+                    rel="noreferrer"
                     className="flex items-center justify-between p-3 rounded-lg hover:bg-[var(--color-bg-hover)] transition-colors group"
                   >
                     <span className="text-sm text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors">

@@ -23,6 +23,9 @@ export function useTheme() {
     } else {
       root.classList.remove("dark");
     }
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", theme === "dark" ? "#0a0a0f" : "#fafafa");
     localStorage.setItem("theme", theme);
   }, [theme]);
 

@@ -1,25 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Code2, Briefcase, Mail, ExternalLink } from "lucide-react";
 
 export function Hero() {
-  const [typedText, setTypedText] = useState("");
-  const fullText = "I build scalable, high-performance web applications";
-
-  useEffect(() => {
-    let i = 0;
-    const timer = setInterval(() => {
-      if (i <= fullText.length) {
-        setTypedText(fullText.slice(0, i));
-        i++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 45);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden noise-overlay">
       {/* Background gradients */}
@@ -55,7 +38,7 @@ export function Hero() {
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4"
         >
           Diaa{" "}
-          <span className="text-[var(--color-accent-cyan)]">El Khouly</span>
+          <span className="text-[var(--color-accent-cyan)]">Elkhouly</span>
         </motion.h1>
 
         {/* Title */}
@@ -79,10 +62,7 @@ export function Hero() {
         >
           <p className="text-lg sm:text-xl md:text-2xl text-[var(--color-text-secondary)] max-w-3xl mx-auto font-mono leading-relaxed">
             <span className="text-[var(--color-accent-cyan)]">$</span>{" "}
-            {typedText}
-            <span className="terminal-cursor text-[var(--color-accent-cyan)]">
-              |
-            </span>
+            I build modern web applications with React and Next.js.
           </p>
         </motion.div>
 
@@ -128,16 +108,27 @@ export function Hero() {
           className="flex items-center justify-center gap-4"
         >
           {[
-            { icon: Code2, label: "GitHub", href: "#" },
-            { icon: Briefcase, label: "LinkedIn", href: "#" },
-            { icon: Mail, label: "Email", href: "mailto:alex@example.com" },
+            {
+              icon: Code2,
+              label: "GitHub",
+              href: "https://github.com/DiaaElkhouly",
+            },
+            {
+              icon: Briefcase,
+              label: "LinkedIn",
+              href: "https://www.linkedin.com/in/diaa-elkhouly-42abb4339/",
+            },
+            {
+              icon: Mail,
+              label: "Email",
+              href: "mailto:diaaelkhouly8@gmail.com",
+            },
           ].map((social) => (
             <a
               key={social.label}
               href={social.href}
-              onClick={(e) => {
-                if (social.href === "#") e.preventDefault();
-              }}
+              target={social.href.startsWith("https://") ? "_blank" : undefined}
+              rel={social.href.startsWith("https://") ? "noreferrer" : undefined}
               className="w-11 h-11 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] flex items-center justify-center hover:border-[var(--color-accent-cyan)]/50 hover:text-[var(--color-accent-cyan)] transition-colors"
               aria-label={social.label}
             >

@@ -6,27 +6,27 @@ import { TerminalCard } from "./TerminalCard";
 const highlights = [
   {
     icon: Zap,
-    title: "Performance First",
+    title: "Thoughtful Interfaces",
     description:
-      "I optimize for sub-100ms response times, lazy loading, and efficient data fetching patterns. Every millisecond matters.",
+      "I build clear, responsive interfaces that make products and their core workflows easy to understand.",
   },
   {
     icon: Layers,
-    title: "Clean Architecture",
+    title: "Product-Focused",
     description:
-      "I design systems with clear boundaries, testable modules, and scalable patterns that grow with the product.",
+      "From e-commerce storefronts to business tools, I focus on the needs of the people using the product.",
   },
   {
     icon: Shield,
-    title: "Production Ready",
+    title: "Reliable Delivery",
     description:
-      "From type safety to error handling, monitoring to CI/CD — I ship code that's reliable and maintainable.",
+      "I take projects from implementation through deployment, with attention to responsive layouts and maintainable code.",
   },
   {
     icon: Terminal,
-    title: "Developer Experience",
+    title: "Modern Web Stack",
     description:
-      "Great DX leads to great UX. I build tools, documentation, and workflows that make teams productive.",
+      "I build web experiences with React, Next.js, JavaScript, and TypeScript.",
   },
 ];
 
@@ -73,18 +73,17 @@ export function About() {
                     :
                   </span>{" "}
                   <span className="text-[var(--color-accent-emerald)]">
-                    &quot;Full Stack Engineer&quot;
+                    &quot;Freelance Full-Stack Web Developer&quot;
                   </span>
                   <span className="text-[var(--color-text-primary)]">,</span>
                 </p>
                 <p className="pl-4">
                   <span className="text-[var(--color-accent-rose)]">
-                    experience
+                    focus
                   </span>
                   <span className="text-[var(--color-text-primary)]">:</span>{" "}
-                  <span className="text-[var(--color-accent-blue)]">3</span>{" "}
-                  <span className="text-[var(--color-text-muted)]">
-                    + years
+                  <span className="text-[var(--color-accent-emerald)]">
+                    &quot;Web applications and digital experiences&quot;
                   </span>
                   <span className="text-[var(--color-text-primary)]">,</span>
                 </p>
@@ -94,18 +93,7 @@ export function About() {
                     :
                   </span>{" "}
                   <span className="text-[var(--color-accent-emerald)]">
-                    &quot;Scalable web apps, real-time systems, developer
-                    tools&quot;
-                  </span>
-                  <span className="text-[var(--color-text-primary)]">,</span>
-                </p>
-                <p className="pl-4">
-                  <span className="text-[var(--color-accent-rose)]">
-                    location
-                  </span>
-                  <span className="text-[var(--color-text-primary)]">:</span>{" "}
-                  <span className="text-[var(--color-accent-emerald)]">
-                    &quot;EGYPT&quot;
+                    &quot;React, Next.js, e-commerce&quot;
                   </span>
                 </p>
                 <p>
@@ -124,9 +112,9 @@ export function About() {
               className="grid grid-cols-3 gap-4"
             >
               {[
-                { value: "3+", label: "Years Exp." },
-                { value: "50+", label: "Projects" },
-                { value: "6K+", label: "Users Served" },
+                { value: "React", label: "Core Stack" },
+                { value: "Freelance", label: "Work Style" },
+                { value: "Egypt", label: "Based In" },
               ].map((stat) => (
                 <div
                   key={stat.label}
