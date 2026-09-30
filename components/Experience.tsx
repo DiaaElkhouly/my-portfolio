@@ -13,8 +13,8 @@ export function Experience() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <SectionHeading
           label="Experience"
-          title="Career journey"
-          description="A track record of shipping impactful products at scale."
+          title="Freelance experience"
+          description="Selected websites and web applications built and published independently."
         />
 
         <div className="relative">

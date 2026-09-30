@@ -13,7 +13,6 @@ import {
   Wrench,
   AlertTriangle,
   CheckCircle2,
-  Star,
   Server,
 } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
@@ -58,20 +57,24 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <div className="flex gap-2">
             <a
               href={project.githubUrl}
-              onClick={(e) => e.preventDefault()}
+              target="_blank"
+              rel="noreferrer"
               className="flex items-center gap-1.5 px-3 py-2 text-xs font-mono rounded-lg border border-[var(--color-border)] hover:border-[var(--color-accent-cyan)]/50 hover:text-[var(--color-accent-cyan)] transition-colors"
             >
               <Code2 className="w-3.5 h-3.5" />
               GitHub
             </a>
-            <a
-              href={project.liveUrl}
-              onClick={(e) => e.preventDefault()}
-              className="flex items-center gap-1.5 px-3 py-2 text-xs font-mono rounded-lg bg-[var(--color-accent-cyan)]/10 text-[var(--color-accent-cyan)] border border-[var(--color-accent-cyan)]/20 hover:bg-[var(--color-accent-cyan)]/20 transition-colors"
-            >
-              <ExternalLink className="w-3.5 h-3.5" />
-              Live Demo
-            </a>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 px-3 py-2 text-xs font-mono rounded-lg bg-[var(--color-accent-cyan)]/10 text-[var(--color-accent-cyan)] border border-[var(--color-accent-cyan)]/20 hover:bg-[var(--color-accent-cyan)]/20 transition-colors"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                Live Demo
+              </a>
+            )}
           </div>
         </div>
 
@@ -318,102 +321,23 @@ export function Projects() {
           </AnimatePresence>
         </div>
 
-        {/* GitHub Repos */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-16"
+          className="mt-12 flex justify-center"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <Code2 className="w-5 h-5 text-[var(--color-accent-cyan)]" />
-            <h3 className="text-lg font-semibold">Open Source Contributions</h3>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                name: "nexus-analytics",
-                stars: 1240,
-                lang: "TypeScript",
-                desc: "Real-time analytics platform",
-              },
-              {
-                name: "pipeline-forge",
-                stars: 5100,
-                lang: "Go",
-                desc: "Self-hosted CI/CD platform",
-              },
-              {
-                name: "sync-write",
-                stars: 3200,
-                lang: "TypeScript",
-                desc: "CRDT collaborative editor",
-              },
-              {
-                name: "meridian-commerce",
-                stars: 890,
-                lang: "TypeScript",
-                desc: "Headless e-commerce",
-              },
-              {
-                name: "rust-raft",
-                stars: 2100,
-                lang: "Rust",
-                desc: "Raft consensus implementation",
-              },
-              {
-                name: "edge-cache",
-                stars: 1560,
-                lang: "Go",
-                desc: "Distributed edge caching layer",
-              },
-            ].map((repo, i) => (
-              <motion.a
-                key={repo.name}
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.05 }}
-                className="group p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] hover:border-[var(--color-accent-cyan)]/30 hover:bg-[var(--color-bg-hover)] transition-all"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-sm text-[var(--color-accent-cyan)] group-hover:underline">
-                    {repo.name}
-                  </span>
-                  <div className="flex items-center gap-1 text-xs text-[var(--color-text-muted)]">
-                    <Star className="w-3 h-3" />
-                    {repo.stars >= 1000
-                      ? `${(repo.stars / 1000).toFixed(1)}k`
-                      : repo.stars}
-                  </div>
-                </div>
-                <p className="text-xs text-[var(--color-text-secondary)] mb-3">
-                  {repo.desc}
-                </p>
-                <div className="flex items-center gap-2">
-                  <span
-                    className="w-2.5 h-2.5 rounded-full"
-                    style={{
-                      backgroundColor:
-                        repo.lang === "TypeScript"
-                          ? "#3178c6"
-                          : repo.lang === "Go"
-                            ? "#00add8"
-                            : repo.lang === "Rust"
-                              ? "#dea584"
-                              : "#a0a0b0",
-                    }}
-                  />
-                  <span className="text-[10px] font-mono text-[var(--color-text-muted)]">
-                    {repo.lang}
-                  </span>
-                </div>
-              </motion.a>
-            ))}
-          </div>
+          <a
+            href="https://github.com/DiaaElkhouly"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 text-sm font-mono text-[var(--color-accent-cyan)] hover:underline"
+          >
+            <Code2 className="w-4 h-4" />
+            Browse all GitHub projects
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
         </motion.div>
       </div>
     </section>

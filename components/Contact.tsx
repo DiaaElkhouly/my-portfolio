@@ -64,7 +64,7 @@ export function Contact() {
                     <div className="text-xs font-mono text-[var(--color-text-muted)] mb-0.5">
                       Email
                     </div>
-                    <div>alex@example.com</div>
+                    <div>diaaelkhouly8@gmail.com</div>
                   </div>
                 </a>
                 <div className="flex items-center gap-3 text-sm text-[var(--color-text-secondary)]">
@@ -75,7 +75,7 @@ export function Contact() {
                     <div className="text-xs font-mono text-[var(--color-text-muted)] mb-0.5">
                       Location
                     </div>
-                    <div>San Francisco, CA</div>
+                    <div>EGYPT</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-[var(--color-text-secondary)]">
@@ -99,12 +99,12 @@ export function Contact() {
                 {[
                   {
                     label: "GitHub",
-                    url: "#",
+                    url: "https://github.com/DiaaElkhouly",
                     color: "var(--color-accent-cyan)",
                   },
                   {
                     label: "LinkedIn",
-                    url: "#",
+                    url: "www.linkedin.com/in/diaa-elkhouly-42abb4339",
                     color: "var(--color-accent-blue)",
                   },
                   {

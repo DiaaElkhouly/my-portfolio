@@ -13,7 +13,7 @@ export interface Project {
   };
   keyFeatures: string[];
   challenges: { challenge: string; solution: string }[];
-  liveUrl: string;
+  liveUrl: string | null;
   githubUrl: string;
   category: string[];
   stats: { label: string; value: string }[];
@@ -37,300 +37,289 @@ export interface TechCategory {
 
 export const projects: Project[] = [
   {
-    id: "saas-dashboard",
-    title: "Nexus Analytics",
-    tagline: "Real-time SaaS analytics platform processing 50M+ events daily",
+    id: "erp-ams",
+    title: "IMS Manufacturing ERP",
+    tagline:
+      "Integrated manufacturing system for inventory, production, purchasing, and sales",
     problem:
-      "Enterprise clients needed a unified analytics dashboard to monitor user behavior, revenue metrics, and system health across multiple products. Existing solutions were fragmented, slow, and couldn't handle real-time data at scale.",
+      "Manufacturing operations need one reliable workflow for stock, production planning, material requirements, sales, and purchasing, with access limited by each employee's role.",
     solution:
-      "Built a high-performance analytics platform with real-time streaming, custom metric pipelines, and interactive visualizations that reduced report generation time from hours to seconds.",
+      "Built an integrated ERP with database-backed workflows for inventory, warehouse, production, BOM, MRP, sales, purchasing, reporting, and role-based access control.",
     techStack: [
-      "Next.js 14",
+      "Next.js 15",
+      "React 19",
       "TypeScript",
+      "Prisma",
       "PostgreSQL",
-      "Redis",
-      "Kafka",
-      "ClickHouse",
+      "NextAuth.js",
       "Tailwind CSS",
-      "Docker",
-      "Kubernetes",
+      "TanStack Query",
+      "Zod",
     ],
     architecture: {
       frontend:
-        "Next.js 14 App Router with Server Components, React Query for data fetching, Recharts for visualizations, and Tailwind for styling.",
+        "Next.js 15 App Router with React 19, reusable dashboard components, TanStack Query, and Tailwind CSS.",
       backend:
-        "Microservices architecture with Node.js, Express, and Fastify. Event-driven with Apache Kafka for real-time data ingestion.",
+        "Next.js REST route handlers with credentials-based NextAuth and a shared RBAC permission matrix enforced in middleware, APIs, and navigation.",
       database:
-        "PostgreSQL for transactional data, ClickHouse for OLAP analytics, Redis for caching and session management.",
+        "PostgreSQL through Prisma, with a seeded manufacturing dataset and persistent records for operational workflows.",
       infrastructure:
-        "Docker containers orchestrated with Kubernetes on AWS EKS. CI/CD via GitHub Actions. Monitoring with Prometheus and Grafana.",
+        "Deployed on Vercel, with environment-based PostgreSQL configuration and database migration/seed scripts.",
     },
     keyFeatures: [
-      "Real-time event streaming with sub-second latency",
-      "Custom SQL query builder for ad-hoc analysis",
-      "Role-based access control with granular permissions",
-      "Automated report scheduling and PDF export",
-      "Multi-tenant architecture with data isolation",
+      "Role-based access for administrators and operational teams",
+      "Inventory and warehouse management with stock visibility",
+      "Production orders, bills of materials, and material requirements planning",
+      "Sales orders and purchasing workflows with status transitions",
+      "Dashboard KPIs, inventory valuation, and order-status reports",
+    ],
+    challenges: [
+      {
+        challenge: "Keeping access rules consistent across the application",
+        solution:
+          "The same role-to-module permission matrix is checked by middleware, API handlers, and filtered sidebar navigation.",
+      },
+      {
+        challenge:
+          "Keeping stock aligned with production and purchasing activity",
+        solution:
+          "Workflow transitions update inventory when production orders are completed and purchase orders are received.",
+      },
+    ],
+    liveUrl: "https://erp-ams.vercel.app/",
+    githubUrl: "https://github.com/DiaaElkhouly/erp-ams",
+    category: ["Full Stack", "ERP", "SaaS"],
+    stats: [
+      { label: "Core Areas", value: "ERP" },
+      { label: "Access", value: "Role-based" },
+      { label: "Database", value: "PostgreSQL" },
+      { label: "Demo", value: "Live" },
+    ],
+  },
+  {
+    id: "pharmacy-store",
+    title: "Dr. Mohamed Awad Pharmacy",
+    tagline:
+      "Arabic online pharmacy and personal-care storefront with a live catalog",
+    problem:
+      "Customers need a clear way to discover pharmacy, medical, and personal-care products, compare prices and availability, and place orders online.",
+    solution:
+      "Built an Arabic storefront with categorized product browsing, price and availability states, a shopping cart, checkout, and a separate admin entry point.",
+    techStack: ["Next.js 16", "React 19", "JavaScript", "Tailwind CSS 4"],
+    architecture: {
+      frontend:
+        "Next.js and React storefront with Arabic product browsing, category navigation, product cards, cart, and checkout pages.",
+      backend:
+        "Next.js application with storefront and dashboard routes. The public repository README does not document the API design.",
+      database:
+        "The repository contains a models layer, but its public documentation does not specify the database engine.",
+      infrastructure: "Live deployment hosted on Vercel.",
+    },
+    keyFeatures: [
+      "Arabic storefront for pharmacy, medical, and personal-care products",
+      "Eight product categories with a live 22-item catalog",
+      "Product pricing, discounts, and stock-availability labels",
+      "Shopping cart and checkout routes",
+      "Separate admin dashboard entry point",
+    ],
+    challenges: [
+      {
+        challenge: "Making a varied product catalog easy to browse",
+        solution:
+          "Grouped products into clear categories and presented prices, discounts, and availability directly in the catalog.",
+      },
+      {
+        challenge: "Supporting the full shopping journey in Arabic",
+        solution:
+          "Connected product browsing to dedicated cart and checkout routes in the deployed storefront.",
+      },
+    ],
+    liveUrl: "https://dr-mohamedawad-pharmacy.vercel.app/",
+    githubUrl: "https://github.com/DiaaElkhouly/dr-mohamedawad-pharmacy",
+    category: ["E-commerce", "Next.js", "Healthcare"],
+    stats: [
+      { label: "Products", value: "22" },
+      { label: "Categories", value: "8" },
+      { label: "Language", value: "Arabic" },
+      { label: "Demo", value: "Live" },
+    ],
+  },
+  {
+    id: "ve-artz",
+    title: "Ve Artz Artist Portfolio",
+    tagline:
+      "An online portfolio for artist Omar Salah and his featured video work",
+    problem:
+      "An artist needs a focused online presence to introduce their work and make featured videos and social profiles easy to discover.",
+    solution:
+      "Built a Next.js portfolio that presents Omar Salah's creative work, recently updated video content, and social links in one place.",
+    techStack: ["Next.js", "JavaScript", "CSS"],
+    architecture: {
+      frontend:
+        "Next.js application organized into app, components, data, and public asset directories.",
+      backend: "No backend service is documented in the public repository.",
+      database:
+        "No external database is documented; the repository includes a data directory for portfolio content.",
+      infrastructure:
+        "The project source and assets are available on GitHub. No active public demo URL could be confirmed.",
+    },
+    keyFeatures: [
+      "Artist-focused portfolio presentation",
+      "Featured video content",
+      "Artist imagery and social profile links",
+      "Next.js application structure with reusable components",
+    ],
+    challenges: [
+      {
+        challenge: "Making video work the focus of an artist portfolio",
+        solution:
+          "Organized the experience around featured creative content and updated the portfolio with additional videos.",
+      },
+      {
+        challenge: "Connecting the portfolio to the artist's identity",
+        solution:
+          "Updated the artist imagery and social profile details to represent Omar Salah.",
+      },
+    ],
+    liveUrl: null,
+    githubUrl: "https://github.com/DiaaElkhouly/ve-artz",
+    category: ["Frontend", "Brand"],
+    stats: [
+      { label: "Project Type", value: "Portfolio" },
+      { label: "Framework", value: "Next.js" },
+      { label: "Language", value: "JavaScript" },
+      { label: "Source", value: "Public" },
+    ],
+  },
+  {
+    id: "cadenza",
+    title: "Cadenza",
+    tagline: "Premium fragrance and skincare brand experience",
+    problem:
+      "A product brand needs a polished online presence that introduces its identity while making fragrance, deodorant, and skincare collections easy to explore.",
+    solution:
+      "Created a multi-page brand site with product collections, product details, an about page, and a team section.",
+    techStack: [
+      "React 19",
+      "Vite 7",
+      "React Router 7",
+      "Material UI",
+      "Framer Motion",
+    ],
+    architecture: {
+      frontend:
+        "React single-page application built with Vite, React Router, Material UI, and Framer Motion.",
+      backend:
+        "No backend service is documented in the public project; the live experience is a client-side brand website.",
+      database:
+        "No external database is documented; the site presents product and brand content.",
+      infrastructure: "Built with Vite and deployed to GitHub Pages.",
+    },
+    keyFeatures: [
+      "Dedicated fragrance, deodorant, and skincare collections",
+      "Product detail views for featured items",
+      "About and team pages for brand storytelling",
+      "Contact details and social links",
     ],
     challenges: [
       {
         challenge:
-          "Querying billions of rows caused 30+ second response times",
+          "Presenting different product lines under one premium identity",
         solution:
-          "Implemented ClickHouse with materialized views and partitioned tables. Added Redis caching layer with cache invalidation strategies.",
+          "Used a consistent brand voice and grouped products into distinct collections for quick browsing.",
       },
       {
-        challenge: "Real-time updates without overwhelming the client",
+        challenge: "Helping visitors move from discovery to product details",
         solution:
-          "Built a WebSocket gateway with connection pooling and message batching. Implemented debounced updates for high-frequency metrics.",
-      },
-      {
-        challenge: "Multi-tenant data isolation at scale",
-        solution:
-          "Designed row-level security policies in PostgreSQL and tenant-aware query builders to prevent cross-tenant data leaks.",
+          "Added collection entry points and product detail links, alongside dedicated brand and team pages.",
       },
     ],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: ["Full Stack", "SaaS", "Data"],
+    liveUrl: "https://diaaelkhouly.github.io/cadenza/",
+    githubUrl: "https://github.com/DiaaElkhouly/cadenza",
+    category: ["Frontend", "Brand", "E-commerce"],
     stats: [
-      { label: "Daily Events", value: "50M+" },
-      { label: "Query Latency", value: "<200ms" },
-      { label: "Uptime", value: "99.99%" },
-      { label: "Active Users", value: "12K+" },
+      { label: "Collections", value: "3" },
+      { label: "Framework", value: "React" },
+      { label: "Routing", value: "React Router" },
+      { label: "Demo", value: "Live" },
     ],
   },
   {
-    id: "ecommerce-platform",
-    title: "Meridian Commerce",
-    tagline: "Headless e-commerce platform with AI-powered recommendations",
+    id: "nefer",
+    title: "NEFER",
+    tagline: "Beauty brand storefront inspired by ancient Egyptian identity",
     problem:
-      "A mid-size retailer needed to migrate from a monolithic legacy platform to a modern headless architecture. The existing system couldn't handle peak traffic during sales events and lacked personalization capabilities.",
+      "A beauty brand needs to connect its product collections with a distinctive story and make the catalog and brand information easy to navigate.",
     solution:
-      "Architected and built a headless e-commerce platform with a custom CMS, AI-driven product recommendations, and elastic scaling that handled 10x traffic spikes without degradation.",
+      "Built a branded product experience around NEFER's identity, with separate product collections, brand information, team details, and contact links.",
     techStack: [
-      "React 18",
-      "Node.js",
-      "GraphQL",
-      "MongoDB",
-      "Elasticsearch",
-      "TensorFlow.js",
-      "AWS Lambda",
-      "Stripe",
+      "React 19",
+      "Vite 7",
+      "React Router 7",
+      "Material UI",
+      "Framer Motion",
     ],
     architecture: {
       frontend:
-        "React 18 with concurrent features, custom design system, and GraphQL client with persisted queries for optimal performance.",
+        "React single-page application built with Vite, React Router, Material UI, and Framer Motion.",
       backend:
-        "Node.js microservices with Apollo Federation for GraphQL schema stitching. Serverless functions for image processing and inventory sync.",
+        "No backend service is documented in the public project; the live experience is a client-side brand website.",
       database:
-        "MongoDB for product catalog (flexible schema), PostgreSQL for orders/transactions, Elasticsearch for search and filtering.",
-      infrastructure:
-        "AWS infrastructure with CloudFront CDN, S3 for media, Lambda for serverless compute, and Auto Scaling Groups for compute nodes.",
+        "No external database is documented; the site presents product and brand content.",
+      infrastructure: "Built with Vite and deployed to GitHub Pages.",
     },
     keyFeatures: [
-      "AI-powered product recommendations with real-time learning",
-      "Headless CMS with drag-and-drop page builder",
-      "Multi-currency and multi-language support",
-      "Advanced inventory management with low-stock alerts",
-      "One-click checkout with Stripe integration",
+      "Body splash, body lotion, and lip-care collections",
+      "Product-focused home page with collection navigation",
+      "About and team pages for brand storytelling",
+      "Contact and social links for customer discovery",
     ],
     challenges: [
       {
-        challenge: "Search relevance across 500K+ products",
+        challenge:
+          "Giving the brand a recognizable identity beyond a product grid",
         solution:
-          "Built a custom Elasticsearch pipeline with synonym expansion, fuzzy matching, and ML-based ranking that improved search CTR by 40%.",
+          "Anchored the site in NEFER's ancient Egyptian-inspired story and carried the identity through its product and brand pages.",
       },
       {
-        challenge: "Cart abandonment rate of 72%",
+        challenge: "Making several beauty categories discoverable",
         solution:
-          "Implemented persistent carts, one-click checkout, and real-time inventory locking. Reduced abandonment to 48%.",
+          "Separated body splash, lotion, and lip-care products into direct collection entry points.",
       },
     ],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: ["Full Stack", "E-commerce", "AI"],
+    liveUrl: "https://diaaelkhouly.github.io/NEFER/",
+    githubUrl: "https://github.com/DiaaElkhouly/NEFER",
+    category: ["Frontend", "Brand", "E-commerce"],
     stats: [
-      { label: "Products", value: "500K+" },
-      { label: "Peak RPS", value: "25K" },
-      { label: "Search CTR", value: "+40%" },
-      { label: "Conversion", value: "+28%" },
-    ],
-  },
-  {
-    id: "collaborative-editor",
-    title: "SyncWrite",
-    tagline: "Real-time collaborative document editor with conflict-free replication",
-    problem:
-      "Teams needed a lightweight, self-hosted alternative to Google Docs with offline support, end-to-end encryption, and full data ownership. Existing open-source solutions were complex to deploy and lacked mobile support.",
-    solution:
-      "Built a CRDT-based collaborative editor with offline-first architecture, E2E encryption, and a deployment system that spins up in under 5 minutes.",
-    techStack: [
-      "TypeScript",
-      "Yjs",
-      "WebRTC",
-      "SQLite",
-      "Tauri",
-      "Rust",
-      "Vite",
-      "TipTap",
-    ],
-    architecture: {
-      frontend:
-        "Vite + React with TipTap editor framework. Yjs for CRDT state management. WebRTC for P2P sync when possible.",
-      backend:
-        "Lightweight signaling server with WebSocket fallback. Rust-based sync server for high-throughput operations.",
-      database:
-        "SQLite with WAL mode for local-first storage. Automatic cloud backup with client-side encryption.",
-      infrastructure:
-        "Desktop app via Tauri (Rust). Self-hosted Docker deployment. Progressive Web App for mobile.",
-    },
-    keyFeatures: [
-      "Offline-first with automatic conflict resolution",
-      "End-to-end encryption for all documents",
-      "Real-time cursors and presence indicators",
-      "Version history with diff visualization",
-      "Desktop, web, and mobile support",
-    ],
-    challenges: [
-      {
-        challenge: "Conflict resolution in offline scenarios",
-        solution:
-          "Implemented Yjs CRDT with custom awareness protocol. Handles concurrent edits gracefully without data loss.",
-      },
-      {
-        challenge: "Large document performance (100K+ words)",
-        solution:
-          "Built virtualized rendering with incremental sync. Documents load in <1s regardless of size.",
-      },
-    ],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: ["Frontend", "Systems", "Open Source"],
-    stats: [
-      { label: "GitHub Stars", value: "3.2K" },
-      { label: "Active Users", value: "8K+" },
-      { label: "Sync Latency", value: "<50ms" },
-      { label: "Deploy Time", value: "<5min" },
-    ],
-  },
-  {
-    id: "devops-platform",
-    title: "PipelineForge",
-    tagline: "Self-hosted CI/CD platform with infrastructure-as-code deployment",
-    problem:
-      "Small development teams struggled with complex CI/CD setup, environment drift, and lack of visibility into deployment pipelines. Cloud CI solutions became prohibitively expensive at scale.",
-    solution:
-      "Created an open-source CI/CD platform with visual pipeline builder, infrastructure-as-code generation, and cost-optimized runner orchestration.",
-    techStack: [
-      "Go",
-      "React",
-      "PostgreSQL",
-      "Docker",
-      "Terraform",
-      "gRPC",
-      "Prometheus",
-      "NATS",
-    ],
-    architecture: {
-      frontend:
-        "React with D3.js for pipeline visualization. Real-time logs via Server-Sent Events. Monaco Editor for YAML editing.",
-      backend:
-        "Go microservices with gRPC for internal communication. NATS for event streaming. Custom container runtime for isolated builds.",
-      database:
-        "PostgreSQL for metadata and pipeline definitions. S3-compatible storage for build artifacts and logs.",
-      infrastructure:
-        "Self-hosted with Docker Compose or Kubernetes. Terraform modules for cloud provisioning. Runner auto-scaling based on queue depth.",
-    },
-    keyFeatures: [
-      "Visual drag-and-drop pipeline builder",
-      "Infrastructure-as-code generation (Terraform, Pulumi)",
-      "Matrix builds with parallel execution",
-      "Cost tracking and runner optimization",
-      "GitHub/GitLab/Bitbucket integration",
-    ],
-    challenges: [
-      {
-        challenge: "Build isolation without VM overhead",
-        solution:
-          "Built a custom container runtime using Linux namespaces and cgroups. Achieves VM-level isolation with container-level performance.",
-      },
-      {
-        challenge: "Runner cost optimization for sporadic workloads",
-        solution:
-          "Implemented predictive auto-scaling with spot instance integration. Reduced CI costs by 65% compared to GitHub Actions.",
-      },
-    ],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: ["Backend", "DevOps", "Open Source"],
-    stats: [
-      { label: "GitHub Stars", value: "5.1K" },
-      { label: "Builds / Day", value: "120K+" },
-      { label: "Cost Savings", value: "65%" },
-      { label: "Contributors", value: "87" },
+      { label: "Collections", value: "3" },
+      { label: "Framework", value: "React" },
+      { label: "Routing", value: "React Router" },
+      { label: "Demo", value: "Live" },
     ],
   },
 ];
 
 export const experiences: ExperienceItem[] = [
   {
-    id: "exp-1",
-    company: "Vercel",
-    role: "Senior Full Stack Engineer",
-    period: "2022 — Present",
-    description:
-      "Leading the development of analytics and observability features for the Vercel platform. Architecting real-time data pipelines and building developer-facing APIs.",
-    achievements: [
-      "Reduced API latency by 60% through query optimization and edge caching",
-      "Led migration of monolithic analytics service to microservices",
-      "Mentored 4 junior engineers and established code review standards",
-      "Shipped 30+ features with 99.9% uptime commitment",
-    ],
-    tech: ["Next.js", "Node.js", "PostgreSQL", "Redis", "Kafka", "ClickHouse"],
-  },
-  {
-    id: "exp-2",
-    company: "Stripe",
-    role: "Full Stack Developer",
-    period: "2020 — 2022",
-    description:
-      "Built payment infrastructure tools and merchant dashboards. Focused on performance optimization and developer experience for the Stripe Dashboard.",
-    achievements: [
-      "Rebuilt checkout flow reducing conversion time by 35%",
-      "Implemented real-time fraud detection dashboard",
-      "Created internal design system used by 15+ teams",
-      "Optimized database queries reducing load by 45%",
-    ],
-    tech: ["React", "Ruby", "PostgreSQL", "Elasticsearch", "GraphQL"],
-  },
-  {
-    id: "exp-3",
-    company: "Shopify",
-    role: "Software Engineer",
-    period: "2018 — 2020",
-    description:
-      "Worked on the Shopify App Store and developer platform. Built APIs and tools that power the ecosystem of 8,000+ third-party apps.",
-    achievements: [
-      "Developed GraphQL API serving 2M+ daily requests",
-      "Built app review automation reducing review time by 50%",
-      "Improved search relevance increasing app installs by 22%",
-    ],
-    tech: ["Ruby on Rails", "React", "MySQL", "Redis", "GraphQL"],
-  },
-  {
-    id: "exp-4",
+    id: "freelance-web-developer",
     company: "Freelance",
-    role: "Full Stack Consultant",
-    period: "2016 — 2018",
+    role: "Freelance Web Developer",
+    period: "Independent work",
     description:
-      "Consulted for startups and agencies on web application architecture, performance optimization, and technical strategy.",
+      "Designing, building, and publishing web experiences for businesses and product brands.",
     achievements: [
-      "Delivered 20+ projects across fintech, healthtech, and e-commerce",
-      "Reduced infrastructure costs by average of 40% for clients",
-      "Established long-term partnerships with 5 recurring clients",
+      "Built and deployed an Arabic pharmacy storefront with product categories, cart, checkout, and an admin dashboard entry point.",
+      "Developed and published Cadenza and NEFER product-brand websites with dedicated collections and brand pages.",
+      "Delivered responsive React and Next.js experiences, including live deployments on Vercel and GitHub Pages.",
     ],
-    tech: ["Node.js", "React", "Python", "AWS", "Docker"],
+    tech: [
+      "Next.js",
+      "React",
+      "JavaScript",
+      "Vite",
+      "Material UI",
+      "Tailwind CSS",
+    ],
   },
 ];
 
@@ -392,24 +381,50 @@ export const githubActivity = [
 ];
 
 export const githubRepos = [
-  { name: "nexus-analytics", stars: 1240, language: "TypeScript", desc: "Real-time analytics platform" },
-  { name: "pipeline-forge", stars: 5100, language: "Go", desc: "Self-hosted CI/CD platform" },
-  { name: "sync-write", stars: 3200, language: "TypeScript", desc: "CRDT collaborative editor" },
-  { name: "meridian-commerce", stars: 890, language: "TypeScript", desc: "Headless e-commerce" },
-  { name: "rust-raft", stars: 2100, language: "Rust", desc: "Raft consensus implementation" },
-  { name: "edge-cache", stars: 1560, language: "Go", desc: "Distributed edge caching layer" },
+  {
+    name: "nexus-analytics",
+    stars: 1240,
+    language: "TypeScript",
+    desc: "Real-time analytics platform",
+  },
+  {
+    name: "pipeline-forge",
+    stars: 5100,
+    language: "Go",
+    desc: "Self-hosted CI/CD platform",
+  },
+  {
+    name: "sync-write",
+    stars: 3200,
+    language: "TypeScript",
+    desc: "CRDT collaborative editor",
+  },
+  {
+    name: "meridian-commerce",
+    stars: 890,
+    language: "TypeScript",
+    desc: "Headless e-commerce",
+  },
+  {
+    name: "rust-raft",
+    stars: 2100,
+    language: "Rust",
+    desc: "Raft consensus implementation",
+  },
+  {
+    name: "edge-cache",
+    stars: 1560,
+    language: "Go",
+    desc: "Distributed edge caching layer",
+  },
 ];
 
 export const allTechFilters = [
   "All",
   "Full Stack",
-  "Frontend",
-  "Backend",
-  "SaaS",
+  "ERP",
   "E-commerce",
-  "AI",
-  "DevOps",
-  "Data",
-  "Systems",
-  "Open Source",
+  "Healthcare",
+  "Frontend",
+  "Brand",
 ];
