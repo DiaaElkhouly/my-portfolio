@@ -3,9 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const siteUrl = "https://diaaelkhouly.vercel.app";
-const siteTitle = "Diaa Elkhouly | Freelance Full-Stack Web Developer";
+const siteTitle = "Diaa Elkhouly | Full-Stack Web Developer";
 const siteDescription =
-  "Diaa Elkhouly is a freelance full-stack web developer in Egypt, building web applications and digital experiences with React and Next.js.";
+  "Diaa Elkhouly is a full-stack web developer in Egypt, building web applications and digital experiences with React and Next.js.";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Diaa Elkhouly - Freelance Full-Stack Web Developer",
+        alt: "Diaa Elkhouly - Full-Stack Web Developer",
       },
     ],
   },
@@ -64,7 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         "@id": `${siteUrl}/#person`,
         name: "Diaa Elkhouly",
         url: siteUrl,
-        jobTitle: "Freelance Full-Stack Web Developer",
+        jobTitle: "Full-Stack Web Developer",
         description: siteDescription,
         email: "diaaelkhouly8@gmail.com",
         address: { "@type": "PostalAddress", addressCountry: "EG" },
