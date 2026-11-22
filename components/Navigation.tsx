@@ -75,7 +75,7 @@ export function Navigation({ theme, toggleTheme }: NavigationProps) {
             >
               <div className="w-9 h-9 rounded-lg bg-[var(--color-accent-cyan)] flex items-center justify-center">
                 <span className="text-black font-mono font-bold text-lg">
-                  DK
+                  DE
                 </span>
               </div>
               <span className="font-mono font-semibold text-lg tracking-tight hidden sm:block">

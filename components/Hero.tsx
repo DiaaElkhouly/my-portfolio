@@ -37,8 +37,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4"
         >
-          Diaa{" "}
-          <span className="text-[var(--color-accent-cyan)]">Elkhouly</span>
+          Diaa <span className="text-[var(--color-accent-cyan)]">Elkhouly</span>
         </motion.h1>
 
         {/* Title */}
@@ -61,8 +60,8 @@ export function Hero() {
           className="mb-12"
         >
           <p className="text-lg sm:text-xl md:text-2xl text-[var(--color-text-secondary)] max-w-3xl mx-auto font-mono leading-relaxed">
-            <span className="text-[var(--color-accent-cyan)]">$</span>{" "}
-            I build modern web applications with React and Next.js.
+            <span className="text-[var(--color-accent-cyan)]">$</span> I build
+            modern web applications with React and Next.js.
           </p>
         </motion.div>
 
@@ -128,7 +127,9 @@ export function Hero() {
               key={social.label}
               href={social.href}
               target={social.href.startsWith("https://") ? "_blank" : undefined}
-              rel={social.href.startsWith("https://") ? "noreferrer" : undefined}
+              rel={
+                social.href.startsWith("https://") ? "noreferrer" : undefined
+              }
               className="w-11 h-11 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] flex items-center justify-center hover:border-[var(--color-accent-cyan)]/50 hover:text-[var(--color-accent-cyan)] transition-colors"
               aria-label={social.label}
             >

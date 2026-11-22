@@ -78,10 +78,10 @@ export function About() {
                   <span className="text-[var(--color-text-primary)]">,</span>
                 </p>
                 <p className="pl-4">
-                  <span className="text-[var(--color-accent-rose)]">
-                    focus
-                  </span>
-                  <span className="text-[var(--color-text-primary)]">:</span>{" "}
+                  <span className="text-[var(--color-accent-rose)]">focus</span>
+                  <span className="text-[var(--color-text-primary)]">
+                    :
+                  </span>{" "}
                   <span className="text-[var(--color-accent-emerald)]">
                     &quot;Web applications and digital experiences&quot;
                   </span>
