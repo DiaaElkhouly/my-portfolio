@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Heart, Code2 } from "lucide-react";
 
 export function Footer() {
@@ -8,8 +9,14 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-md bg-[var(--color-accent-cyan)] flex items-center justify-center">
-              <span className="text-black font-mono font-bold text-[10px]">DE</span>
+            <div className="w-7 h-7 rounded-md overflow-hidden flex items-center justify-center ring-1 ring-[var(--color-border)]">
+              <Image
+                src="/icon.svg"
+                alt="Diaa El Khouly logo"
+                width={28}
+                height={28}
+                className="w-full h-full object-cover"
+              />
             </div>
             <span className="font-mono text-sm text-[var(--color-text-muted)]">
               DiaaElKhouly

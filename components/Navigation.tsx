@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -73,10 +74,15 @@ export function Navigation({ theme, toggleTheme }: NavigationProps) {
               }}
               className="flex items-center gap-2 group"
             >
-              <div className="w-9 h-9 rounded-lg bg-[var(--color-accent-cyan)] flex items-center justify-center">
-                <span className="text-black font-mono font-bold text-lg">
-                  DE
-                </span>
+              <div className="w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center ring-1 ring-[var(--color-border)] group-hover:ring-[var(--color-accent-cyan)]/50 transition-all">
+                <Image
+                  src="/icon.svg"
+                  alt="Diaa El Khouly logo"
+                  width={36}
+                  height={36}
+                  priority
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="font-mono font-semibold text-lg tracking-tight hidden sm:block">
                 DiaaElKhouly

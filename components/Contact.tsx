@@ -8,8 +8,32 @@ import {
   ArrowUpRight,
   MapPin,
   Clock,
+  Code2,
+  Briefcase,
+  MessageCircle,
 } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
+
+const quickLinks = [
+  {
+    label: "GitHub",
+    url: "https://github.com/DiaaElkhouly",
+    color: "var(--color-accent-cyan)",
+    icon: Code2,
+  },
+  {
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/diaa-elkhouly-42abb4339/",
+    color: "var(--color-accent-blue)",
+    icon: Briefcase,
+  },
+  {
+    label: "WhatsApp",
+    url: "https://wa.me/201201449924",
+    color: "var(--color-accent-emerald)",
+    icon: MessageCircle,
+  },
+];
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -96,18 +120,7 @@ export function Contact() {
             <div className="p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)]">
               <h3 className="font-semibold mb-4">Quick Links</h3>
               <div className="space-y-2">
-                {[
-                  {
-                    label: "GitHub",
-                    url: "https://github.com/DiaaElkhouly",
-                    color: "var(--color-accent-cyan)",
-                  },
-                  {
-                    label: "LinkedIn",
-                    url: "https://www.linkedin.com/in/diaa-elkhouly-42abb4339/",
-                    color: "var(--color-accent-blue)",
-                  },
-                ].map((link) => (
+                {quickLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.url}
@@ -115,7 +128,16 @@ export function Contact() {
                     rel="noreferrer"
                     className="flex items-center justify-between p-3 rounded-lg hover:bg-[var(--color-bg-hover)] transition-colors group"
                   >
-                    <span className="text-sm text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors">
+                    <span className="flex items-center gap-3 text-sm text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors">
+                      <span
+                        className="w-8 h-8 rounded-lg flex items-center justify-center border border-[var(--color-border)] group-hover:border-current/20 transition-colors"
+                        style={{
+                          color: link.color,
+                          backgroundColor: `color-mix(in srgb, ${link.color} 10%, transparent)`,
+                        }}
+                      >
+                        <link.icon className="w-4 h-4" />
+                      </span>
                       {link.label}
                     </span>
                     <ArrowUpRight
